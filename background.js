@@ -4,9 +4,20 @@ chrome.runtime.onMessage.addListener(
 
     var img_url = arg;
 
+    var saveas = "";
+
     try {
 
-     saveas = img_url.replace(/[^a-zA-Z0-9]/g,'-').substring(0, img_url.replace(/[^a-zA-Z0-9]/g,'-').lastIndexOf("-")) + "." + img_url.replace(/[^a-zA-Z0-9]/g,'-').substring(img_url.replace(/[^a-zA-Z0-9]/g,'-').lastIndexOf("-") + 1);
+      if (img_url[img_url.replace(/[^a-zA-Z0-9]/g,'-').lastIndexOf("-")] == '.'){
+
+        saveas = img_url.replace(/[^a-zA-Z0-9]/g,'-').substring(0, img_url.replace(/[^a-zA-Z0-9]/g,'-').lastIndexOf("-")) + "." + img_url.replace(/[^a-zA-Z0-9]/g,'-').substring(img_url.replace(/[^a-zA-Z0-9]/g,'-').lastIndexOf("-") + 1);
+      
+      }
+      else {
+
+        saveas = img_url.replace(/[^a-zA-Z0-9]/g,'-') + ".png";
+
+      }
 
     }
     catch (problem){

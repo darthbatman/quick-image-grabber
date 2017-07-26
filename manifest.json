@@ -1,7 +1,7 @@
 {
 "name":"Quick Image Grabber",
 "description":"Conveniently download the largest image on the page with a keyboard shortcut.",
-"version":"1.0.1",
+"version":"1.0.2",
 "manifest_version":2,
 
 "browser_action": {

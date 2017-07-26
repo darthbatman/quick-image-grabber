@@ -15,6 +15,26 @@ document.onkeydown = function(e) {
 
 		var largestAreaIndex = -1;
 
+		var currentGoogleImage = "";
+
+		var divs = document.getElementsByTagName("div");
+
+		for (var i = 0; i < divs.length; i++){
+
+		   if (divs[i].style.transform == "translate3d(0px, 0px, 0px)"){
+
+		   	if (divs[i].childNodes[0].className.split(" ")[0] == "irc_t"){
+
+		   		console.log(divs[i].childNodes[0].childNodes[1].childNodes[1].childNodes[0].childNodes[0].getAttribute('src'));
+
+		   		currentGoogleImage = divs[i].childNodes[0].childNodes[1].childNodes[1].childNodes[0].childNodes[0].getAttribute('src');
+
+		   	}
+
+		   }
+
+		}
+
 		for (var i = 0; i < document.querySelectorAll('[src]').length; i++) {
 
 		  var item = document.querySelectorAll('[src]')[i];
@@ -37,9 +57,9 @@ document.onkeydown = function(e) {
 
 		}
 
-		if (document.querySelectorAll('.irc_mi').length > 0){
+		if (currentGoogleImage.length > 0){
 
-			chrome.runtime.sendMessage(document.querySelectorAll('.irc_mi')[1].getAttribute('src'));
+			chrome.runtime.sendMessage(currentGoogleImage);
 
 		}
 		else if (largestAreaIndex != -1){
