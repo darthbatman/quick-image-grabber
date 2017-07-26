@@ -1,0 +1,26 @@
+{
+"name":"Quick Image Grabber",
+"description":"Conveniently download the largest image on the page with a keyboard shortcut.",
+"version":"1.0.0",
+"manifest_version":2,
+
+"browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Quick Image Grabber"
+  },
+  "permissions": ["background", "downloads"],
+  "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+
+"content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["download.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
